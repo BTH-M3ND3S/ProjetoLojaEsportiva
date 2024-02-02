@@ -4,6 +4,9 @@ function home(){
     return(
     <>
      <CssBaseline />
+     <div>
+      <p>teste</p>
+     </div>
     </>
     )
 }
