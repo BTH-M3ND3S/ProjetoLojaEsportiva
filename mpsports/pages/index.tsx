@@ -1,13 +1,14 @@
 import React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
+import Header from '../components/header';
+import { ChakraProvider, CSSReset } from "@chakra-ui/react";
+
+
 function home(){
     return(
-    <>
-     <CssBaseline />
-     <div>
-      <p>teste</p>
-     </div>
-    </>
+        <ChakraProvider>
+        <CSSReset />
+        <Header />
+      </ChakraProvider>
     )
 }
 export default home;
