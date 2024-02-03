@@ -39,12 +39,10 @@ function Header() {
   ];
 
   const handleClickCart = () => {
-    // Adicione lógica para o clique no ícone de carrinho
     console.log("Ícone de carrinho clicado");
   };
 
   const handleClickUser = () => {
-    // Adicione lógica para o clique no ícone de usuário
     console.log("Ícone de usuário clicado");
   };
   return (
