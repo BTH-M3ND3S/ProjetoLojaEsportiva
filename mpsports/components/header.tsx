@@ -2,14 +2,15 @@ import React from "react";
 import { ChakraProvider, Box, Input, InputGroup, InputLeftElement, Icon, Flex } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 import { Menu, MenuButton, MenuList, MenuItem, IconButton, } from "@chakra-ui/react";
-import { HamburgerIcon, AddIcon, ExternalLinkIcon, RepeatIcon, EditIcon, } from "@chakra-ui/icons";
-import { FaShoppingCart, FaUser } from "react-icons/fa";
+import { HamburgerIcon,} from "@chakra-ui/icons";
+import { FaShoppingCart, FaHeart } from "react-icons/fa";
 import { Text, Link } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { Button } from "@chakra-ui/react";
 import Image from "next/image";
 import Img from '../images/logo.png'
+
 
 
 const SubMenu = ({ category }) => {
@@ -45,8 +46,8 @@ function Header() {
     console.log("Ícone de carrinho clicado");
   };
 
-  const handleClickUser = () => {
-    console.log("Ícone de usuário clicado");
+  const handleClickFav = () => {
+    console.log("Ícone de Favoritos clicado");
   };
   return (
     <ChakraProvider>
@@ -63,7 +64,7 @@ function Header() {
         <Box display={{ base: "none", md: "flex" }} alignItems={"center"} justifyContent={"center"} w={"25%"}>
         <Image src={Img} style={{ objectFit: "cover", width: "35%", height: "100%" }} alt='Dan Abramov' />
         </Box>
-        <Box h={"100%"} width={"50%"} display={"flex"} alignItems={"center"} justifyContent={{base: "inititial", md: "center"}}>
+        <Box ml={{base: "15px", md:"0" }} h={"100%"} width={{base:"55", md:"50%"}} display={"flex"} alignItems={"center"} justifyContent={{base: "inititial", md: "center"}}>
           <InputGroup>
             <InputLeftElement
               pointerEvents="none"
@@ -73,36 +74,15 @@ function Header() {
           </InputGroup  >
         </Box>
         <Box h={"100%"} width={"25%"} display={ {base: "none", md: "flex"}} alignItems={"center"} justifyContent={"end"}>
+          <Link w={"7rem"} display={{base: "none", md: "flex"}} mr={"10px"} justifyContent={"center"} borderRadius={"5px"} padding={"6px"} bgColor={"white"} href="https://www.example.com" isExternal>
+              Entrar
+          </Link>
+          <Icon as={FaHeart} boxSize={6} color="white" margin="0 1rem" cursor="pointer" onClick={handleClickFav} />
           <Icon as={FaShoppingCart} boxSize={6} color="white" margin="0 1rem" cursor="pointer" onClick={handleClickCart} />
-          <Button w={"7rem"} display={{base: "none", md: "flex"}} mr={"20px"}><a href="/login"></a>Entrar</Button>
+          
         </Box>
-        <Box display={ {base: "flex", md: "none"}} w={"25%"}>
-
-        </Box>
-      </Box>
-      <Box bgColor="#1E90FF" p={4} display={{ base: "none", md: "block" }}>
-        <Flex align="center" justify="space-between">
-          {menuOptions.map((option, index) => (
-            <Menu key={index}>
-              <MenuButton
-                as={Text}
-                fontSize="md"
-                fontWeight="bold"
-                color="white"
-                cursor="pointer"
-                _hover={{ textDecoration: "underline" }}
-                onClick={() => setActiveCategory(option.category)}
-              >
-                {option.label}
-                {option.category && <ChevronDownIcon />}
-              </MenuButton>
-              {option.category && activeCategory === option.category && <SubMenu category={option.category} />}
-            </Menu>
-          ))}
-        </Flex>
-      </Box>
-      <Box w={"100%"} h={"40px"} bgColor={"#00008B"} display={{base: "flex", md: "none"}}>
-      <Menu>
+        <Box display={ {base: "flex", md: "none"}} w={"20%"} justifyContent={"center"} alignItems={"center"}>
+        <Menu>
             <MenuButton
               as={IconButton}
               aria-label="Options"
@@ -112,7 +92,9 @@ function Header() {
             />
             <MenuList>
               <MenuItem display={{base: "flex", md: "none"}}>
-              <Button bgColor={"black"} color={"white"} borderRadius={""}><a href="/login">Entrar</a></Button>
+              <Link w={"7rem"} display={{base: "flex", md: "none"}} color={"white"}  justifyContent={"center"} borderRadius={"5px"} padding={"6px"} bgColor={"black"} href="https://www.example.com" isExternal>
+                Entrar
+              </Link>
               </MenuItem>
               <MenuItem>
               <a href="/">Home</a>
@@ -137,16 +119,43 @@ function Header() {
               </MenuItem>
             </MenuList>
           </Menu>
-          <Box h={"100%"} width={"72%"} display={ {base: "flex", md: "none"}} alignItems={"center"} justifyContent={"center"}>
-
-          </Box>
-
-
-          <Box h={"100%"} width={"18%"} display={ {base: "flex", md: "none"}} alignItems={"center"} justifyContent={"center"}>
-            <Icon as={FaShoppingCart} boxSize={6} color="white" margin="0 1rem" cursor="pointer" onClick={handleClickCart} />
-          </Box>
-
+        </Box>
       </Box>
+      <Box bgColor="#1E90FF" p={4} display={{ base: "none", md: "block" }}>
+        <Flex align="center" justify="space-between" w={"100%"} h={"100%"}>
+          {menuOptions.map((option, index) => (
+            <Menu key={index}>
+              <MenuButton
+              padding={"10px"}
+                as={Text}
+                fontSize="md"
+                fontWeight="bold"
+                color="white"
+                cursor="pointer"
+                _hover={{bgColor: "#87CEFA"}}
+                onClick={() => setActiveCategory(option.category)}
+              >
+                {option.label}
+                {option.category && <ChevronDownIcon />}
+              </MenuButton>
+              {option.category && activeCategory === option.category && <SubMenu category={option.category} />}
+            </Menu>
+          ))}
+        </Flex>
+      </Box>
+      <Box w={"100%"} h={"40px"} bgColor={"#00008B"} display={{base: "flex", md: "none"}}>
+        <Box h={"100%"} width={"25%"} display={ {base: "flex", md: "none"}} alignItems={"center"} justifyContent={"center"}>
+
+        </Box>
+        <Box h={"100%"} width={"50%"} display={ {base: "flex", md: "none"}} alignItems={"center"} justifyContent={"center"}>
+
+        </Box>
+          <Box h={"100%"} width={"25%"} display={ {base: "flex", md: "none"}} alignItems={"center"} justifyContent={"center"}>
+          <Icon as={FaShoppingCart} boxSize={6} color="white" margin="0 1rem" cursor="pointer" onClick={handleClickCart} />
+          </Box>
+          
+      </Box>
+
     </ChakraProvider>
   );
 }
