@@ -7,7 +7,6 @@ import { FaShoppingCart, FaHeart } from "react-icons/fa";
 import { Text, Link } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useState } from "react";
-import { Button } from "@chakra-ui/react";
 import Image from "next/image";
 import Img from '../images/logo.png'
 
