@@ -126,7 +126,6 @@ function Header() {
           {menuOptions.map((option, index) => (
             <Menu key={index}>
               <MenuButton
-              padding={"10px"}
                 as={Text}
                 fontSize="md"
                 fontWeight="bold"
