@@ -76,8 +76,8 @@ function Header() {
           <Link w={"7rem"} display={{base: "none", md: "flex"}} mr={"10px"} justifyContent={"center"} borderRadius={"5px"} padding={"6px"} bgColor={"white"} href="https://www.example.com" isExternal>
               Entrar
           </Link>
-          <Icon as={FaHeart} boxSize={6} color="white" margin="0 1rem" cursor="pointer" onClick={handleClickFav} />
-          <Icon as={FaShoppingCart} boxSize={6} color="white" margin="0 1rem" cursor="pointer" onClick={handleClickCart} />
+          <Icon as={FaHeart} boxSize={6} color="white" margin="0 0.3rem" cursor="pointer" onClick={handleClickFav} />
+          <Icon as={FaShoppingCart} boxSize={6} color="white" margin="0 0.3rem" cursor="pointer" onClick={handleClickCart} />
           
         </Box>
         <Box display={ {base: "flex", md: "none"}} w={"20%"} justifyContent={"center"} alignItems={"center"}>
