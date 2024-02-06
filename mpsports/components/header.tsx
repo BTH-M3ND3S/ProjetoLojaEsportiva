@@ -50,8 +50,8 @@ function Header() {
   };
   return (
     <ChakraProvider>
-      <Box h={"2rem"} display={{base: "none", md: "flex"}} justifyContent={"center"} bgColor={"orange.300"} w={"100%"}>
-        <Text>
+      <Box h={"2rem"} display={{base: "none", md: "flex"}} justifyContent={"center"} bgColor={"black"} w={"100%"}>
+        <Text color={"white"} fontWeight={"bold"}>
         "Desconto de 10% na sua primeira compra!"
         </Text>
         <a href="#" style={{color: 'blue'}}>Saiba Mais</a>
